@@ -1,0 +1,1960 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Library Collection - API Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "support@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://librarycollection.addwebprojects.com/api/v1",
+            "description": "Library Collection API Server"
+        }
+    ],
+    "paths": {
+        "/banner-list": {
+            "get": {
+                "tags": [
+                    "Banner"
+                ],
+                "summary": "Get list of banners",
+                "description": "Returns list of banners.",
+                "operationId": "getBannerList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale banner",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Banner fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "No banner available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/banner-detail/{Id}": {
+            "get": {
+                "tags": [
+                    "Banner"
+                ],
+                "summary": "Get specific banner by id",
+                "description": "Returns specific banner by id",
+                "operationId": "getBanner",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "description": "ID of banner",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale banner",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "banner details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/page-list": {
+            "get": {
+                "tags": [
+                    "Cms"
+                ],
+                "summary": "Get list of pages",
+                "description": "Returns list of pages.",
+                "operationId": "getPageList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale page",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Page fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "No page available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/page-detail/{Id}": {
+            "get": {
+                "tags": [
+                    "Cms"
+                ],
+                "summary": "Get specific page by id",
+                "description": "Returns specific page by id",
+                "operationId": "getPage",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "description": "ID of page",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale page",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "page details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/post-enquiry": {
+            "post": {
+                "tags": [
+                    "ContactEnquiry"
+                ],
+                "summary": "post the contact enquiry",
+                "description": "user can post the contact enquiry",
+                "operationId": "postContactEnquiry",
+                "parameters": [
+                    {
+                        "parameter": "name",
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "email",
+                        "name": "email",
+                        "in": "query",
+                        "description": "The email of user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "message",
+                        "name": "message",
+                        "in": "query",
+                        "description": "The message for enquiry",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "phone",
+                        "name": "phone",
+                        "in": "query",
+                        "description": "The phone of user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contact enquiry sent successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/faq-list": {
+            "get": {
+                "tags": [
+                    "FAQ"
+                ],
+                "summary": "Get list of faqs",
+                "description": "Returns list of faqs.",
+                "operationId": "getFaqList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale faq",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Faq fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Faq not available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/faq-detail/{Id}": {
+            "get": {
+                "tags": [
+                    "FAQ"
+                ],
+                "summary": "Get specific faq by id",
+                "description": "Returns specific faq by id",
+                "operationId": "getFaq",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "description": "ID of faq",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale faq",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Faq details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/partner-list": {
+            "get": {
+                "tags": [
+                    "Partner"
+                ],
+                "summary": "Get list of partners",
+                "description": "Returns list of partners.",
+                "operationId": "getPartnerList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale partner",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Partner fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Partner not available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/partner-detail/{Id}": {
+            "get": {
+                "tags": [
+                    "Partner"
+                ],
+                "summary": "Get specific partner by id",
+                "description": "Returns specific partner by id",
+                "operationId": "getPartner",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "description": "ID of partner",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale partner",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Partner details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/user-rating-list": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Get list of ratings",
+                "description": "Returns list of ratings.",
+                "operationId": "getRatingList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale rating",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Rating fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Rating not available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/user-rating-detail/{Id}": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Get specific rating by id",
+                "description": "Returns specific rating by id",
+                "operationId": "getRating",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "description": "ID of rating",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale rating",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rating details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/post-rating": {
+            "post": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "post the contact enquiry",
+                "description": "user can post the Rating",
+                "operationId": "postRating",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale rating",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "rating",
+                        "name": "rating",
+                        "in": "query",
+                        "description": "The rating of user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "message",
+                        "name": "message",
+                        "in": "query",
+                        "description": "The review message of user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Review saved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/plan-list": {
+            "get": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "Get list of Subscription Plans",
+                "description": "Returns list of Subscription Plans.",
+                "operationId": "getPlanList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Subscription Plan fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Subscription Plan not available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/change-plan-list": {
+            "get": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "Get list of not subscribed Subscription Plans by the user.",
+                "description": "Returns list ofnot subscribed Subscription Plans by the user.",
+                "operationId": "changePlanList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Subscription Plan fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Subscription Plan not available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/user-plan": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "user subscription plan detail",
+                "description": "user subscription plan detail.",
+                "operationId": "userPlan",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "plan_id",
+                        "name": "plan_id",
+                        "in": "query",
+                        "description": "plan_id for specific subscription plan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "coupon_code",
+                        "name": "coupon_code",
+                        "in": "query",
+                        "description": "coupon_code for subscription plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Subscription plan detail fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Subscription plan could not fetched.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/process-subscription": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "process the Subscription Plan purchase",
+                "description": "Returns status of Subscription Plan process.",
+                "operationId": "processSubscription",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "plan_id",
+                        "name": "plan_id",
+                        "in": "query",
+                        "description": "plan_id for specific subscription plan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "payment_method_token",
+                        "name": "payment_method_token",
+                        "in": "query",
+                        "description": "payment_method_token for specific payment method",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "coupon_code",
+                        "name": "coupon_code",
+                        "in": "query",
+                        "description": "coupon_code for subscription plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Subscription Plan process successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Subscription Plan not process.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/payment-methods": {
+            "get": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "List all the payment methods.",
+                "description": "Returns all the payment methods.",
+                "operationId": "allPaymentMethods",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Payment method fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Payment method not available..",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/user-subscriptions": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "List all the user subscriptions.",
+                "description": "Returns all the user subscriptions.",
+                "operationId": "allUserSubscriptions",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "active",
+                        "name": "active",
+                        "in": "query",
+                        "description": "active only filter for user subscriptions: possible values:1,0 ; default 0",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "canceled",
+                        "name": "canceled",
+                        "in": "query",
+                        "description": "canceled only filter for user subscriptions: possible values:1,0 ; default 0",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "incomplete",
+                        "name": "incomplete",
+                        "in": "query",
+                        "description": "incomplete only filter for user subscriptions: possible values:1,0 ; default 0",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "onTrial",
+                        "name": "onTrial",
+                        "in": "query",
+                        "description": "onTrial only filter for user subscriptions: possible values:1,0 ; default 0",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "onGracePeriod",
+                        "name": "onGracePeriod",
+                        "in": "query",
+                        "description": "onGracePeriod only filter for user subscriptions: possible values:1,0 ; default 0",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "pastDue",
+                        "name": "pastDue",
+                        "in": "query",
+                        "description": "pastDue only filter for user subscriptions: possible values:1,0 ; default 0",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "ended",
+                        "name": "ended",
+                        "in": "query",
+                        "description": "ended only filter for user subscriptions: possible values:1,0 ; default 0",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "User subscription fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "User subscription not available..",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/add-payment-method": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "Add the new payment method",
+                "description": "Add the new payment method process.",
+                "operationId": "addPaymentMethod",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "payment_method_token",
+                        "name": "payment_method_token",
+                        "in": "query",
+                        "description": "payment_method_token for specific payment method",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Payment method Added successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Payment method not added.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/delete-payment-method": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "delete the payment method",
+                "description": "delete the payment method process.",
+                "operationId": "deletePaymentMethod",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "payment_method_token",
+                        "name": "payment_method_token",
+                        "in": "query",
+                        "description": "payment_method_token for specific payment method",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Payment method deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Payment method not deleted.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/set-default-payment-method": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "set default the payment method",
+                "description": "set default the payment method process.",
+                "operationId": "setDefaultPaymentMethod",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "payment_method_token",
+                        "name": "payment_method_token",
+                        "in": "query",
+                        "description": "payment_method_token for specific payment method",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Default payment method updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Default payment method not updated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/cancel-subscription": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "cancel the user subscription",
+                "description": "cancel the user subscription.",
+                "operationId": "cancelUserSubscription",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "plan_id",
+                        "name": "plan_id",
+                        "in": "query",
+                        "description": "plan_id for specific subscription plan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Subscription cancelled successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Subscription could not cancelled .",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/change-subscription": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "change the user subscription",
+                "description": "change the user subscription.",
+                "operationId": "changeUserSubscription",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "plan_id",
+                        "name": "plan_id",
+                        "in": "query",
+                        "description": "plan_id for specific subscription plan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "coupon_code",
+                        "name": "coupon_code",
+                        "in": "query",
+                        "description": "coupon_code for subscription plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Subscription updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Subscription could not updated .",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/coupon-list": {
+            "get": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "Get list of coupons for the subscription.",
+                "description": "Returns list of coupons for the subscription.",
+                "operationId": "couponList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Coupon fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Coupon not available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/apply-coupon": {
+            "post": {
+                "tags": [
+                    "SubscriptionPlan"
+                ],
+                "summary": "apply the coupon on subscription plan",
+                "description": "apply the coupon on subscription plan and return the discounted price with original one",
+                "operationId": "applyCoupon",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale Subscription Plan",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "plan_id",
+                        "name": "plan_id",
+                        "in": "query",
+                        "description": "plan_id for specific subscription plan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "coupon_code",
+                        "name": "coupon_code",
+                        "in": "query",
+                        "description": "coupon_code for subscription plan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Subscription plan detail fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Subscription plan could not fetched.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/testimonial-list": {
+            "get": {
+                "tags": [
+                    "Testimonial"
+                ],
+                "summary": "Get list of testimonials",
+                "description": "Returns list of testimonials.",
+                "operationId": "getTestimonialList",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale testimonial",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Testimonial fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Testimonial not available.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/testimonial-detail/{Id}": {
+            "get": {
+                "tags": [
+                    "Testimonial"
+                ],
+                "summary": "Get specific testimonial by id",
+                "description": "Returns specific testimonial by id",
+                "operationId": "getTestimonial",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "description": "ID of testimonial",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of locale testimonial",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Testimonial details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/role-list": {
+            "get": {
+                "tags": [
+                    "RoleList"
+                ],
+                "summary": "Get list of roles",
+                "description": "Returns list of roles.",
+                "operationId": "getRoleList",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Role fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/module-list": {
+            "get": {
+                "tags": [
+                    "ModuleList"
+                ],
+                "summary": "Get list of modules",
+                "description": "Returns list of modules.",
+                "operationId": "getModuleList",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Module fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/language-list": {
+            "get": {
+                "tags": [
+                    "LanguageList"
+                ],
+                "summary": "Get list of languages",
+                "description": "Returns list of languages.",
+                "operationId": "getLanguageList",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Language fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/setting-list": {
+            "get": {
+                "tags": [
+                    "SettingList"
+                ],
+                "summary": "Get list of settings",
+                "description": "Returns list of settings.",
+                "operationId": "getSettingList",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Setting fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get current user details",
+                "description": "Returns current user details.",
+                "operationId": "getUserDetail",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of desired locale",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Password changed successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Password changed successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "logout current user",
+                "description": "logout current user.",
+                "operationId": "UserLogout",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of desired locale",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "User logout successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "User logout successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/change-password": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User password change.",
+                "description": "User password change.",
+                "operationId": "changePassword",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of desired locale",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "parameter": "old_password",
+                        "name": "old_password",
+                        "in": "query",
+                        "description": "old password",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "password"
+                        }
+                    },
+                    {
+                        "parameter": "new_password",
+                        "name": "new_password",
+                        "in": "query",
+                        "description": "new password",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "password"
+                        }
+                    },
+                    {
+                        "parameter": "confirm_password",
+                        "name": "confirm_password",
+                        "in": "query",
+                        "description": "confirm password",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "password"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Password changed successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Password changed successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/secret-details": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get general secret details",
+                "description": "Returns general secret details.",
+                "operationId": "getSecretDetails",
+                "parameters": [
+                    {
+                        "parameter": "lang_code",
+                        "name": "lang_code",
+                        "in": "query",
+                        "description": "The lang_code of desired locale",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "sanctum": []
+        }
+    ]
+}

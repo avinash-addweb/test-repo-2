@@ -1,0 +1,14 @@
+{
+    "Faq": false,
+    "ContactEnquiry": false,
+    "Testimonial": false,
+    "NotificationTemplate": false,
+    "Partner": false,
+    "Banner": false,
+    "RatingReview": false,
+    "Cms": false,
+    "Subscription": false,
+    "Region": true,
+    "Master": true,
+    "Advanced": true
+}
